@@ -123,7 +123,7 @@ def menger():
     for point in iteration1: # Does massDraw on every coord in previous iteration,
         print(point)
         iteration2.extend(massDraw(length, point, 9))
-#    for point in iteration2:
+#    for point in iteration2: # Is very laggy...
 #        iteration3 = massDraw(length, point, 27)
 
 # Figure setup
