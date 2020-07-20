@@ -23,7 +23,7 @@ class drawCube:
         self.bottom4 = np.subtract(self.top4, (0, 0, length)) # Back bottom right coord
         self.steps = steps # How many parts each section is split into
         self.thickness = thickness # Outline thickness
-        self.opacity = 0.1 # Opacity of surface (0 - 1)
+        self.opacity = 0.4 # Opacity of surface (0 - 1)
 
     def topAndBottom(self):
         # TOP SURFACE
@@ -109,6 +109,7 @@ def generatePoints(length, position, cubesInRow):
 def massDraw(length, position, cubesInRow):
     newLength = length/cubesInRow
     x = generatePoints(length, position, cubesInRow)
+    print("Cube coordinates:")
     print(x)
     for point in x:
         draw(newLength, point, 2, 0.5)
@@ -121,7 +122,6 @@ def menger():
     iteration1 = massDraw(length, position, 3)
     iteration2 = []
     for point in iteration1: # Does massDraw on every coord in previous iteration,
-        print(point)
         iteration2.extend(massDraw(length, point, 9))
 #    for point in iteration2: # Is very laggy...
 #        iteration3 = massDraw(length, point, 27)
